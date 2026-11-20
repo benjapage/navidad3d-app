@@ -1,0 +1,261 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#c0112b">
+<meta name="robots" content="noindex,nofollow">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="apple-touch-icon" href="icon-192.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<title>Navidad3D</title>
+<style>
+:root{--red:#d4142f;--red2:#a30d22;--green:#0f6b43;--green2:#16a05f;--gold:#ffc43d;--ink:#22160f;--cream:#fff6e6;--line:#efdcc0;--mut:#7a6656}
+*{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-text-size-adjust:100%}
+body{font:15px/1.4 -apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;background:var(--cream);color:var(--ink);min-height:100vh}
+button{font:inherit;border:0;cursor:pointer;color:inherit;background:none}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:560px;margin:0 auto;padding-bottom:40px}
+.hd{background:linear-gradient(135deg,var(--red2),var(--red));color:#fff;padding:18px 16px 16px;position:sticky;top:0;z-index:20;box-shadow:0 2px 10px rgba(0,0,0,.18)}
+.hd .t{display:flex;align-items:center;justify-content:space-between;gap:8px}
+.hd b{font-size:20px}.hd small{display:block;opacity:.88;font-size:12.5px}
+.hd .inst{background:rgba(255,255,255,.18);border-radius:999px;padding:6px 11px;font-size:12px;font-weight:700;white-space:nowrap;display:none}
+.bar{display:flex;align-items:center;gap:8px;background:#fff;border-radius:12px;margin-top:12px;padding:0 12px}
+.bar input{flex:1;border:0;outline:0;padding:12px 0;font:inherit;color:var(--ink);background:transparent;min-width:0}
+.back{display:flex;align-items:center;gap:6px;font-weight:800;font-size:16px;padding:14px 16px;background:#fff;border-bottom:1px solid var(--line);position:sticky;top:0;z-index:20;width:100%;text-align:left}
+.back span{font-size:22px;line-height:1;color:var(--red)}
+h3{padding:18px 16px 10px;font-size:17px}
+.hello{margin:14px 16px 0;background:#fff;border:2px solid var(--line);border-radius:16px;padding:14px;display:flex;gap:12px;align-items:center}
+.hello i{font-style:normal;font-size:30px}.hello small{color:var(--mut)}
+.cats{display:grid;grid-template-columns:1fr 1fr;gap:10px;padding:0 16px}
+.cat{border-radius:16px;padding:14px;color:#fff;min-height:98px;display:flex;flex-direction:column;justify-content:space-between;font-weight:800;text-align:left;position:relative;box-shadow:0 2px 8px rgba(0,0,0,.12);font-size:15.5px}
+.cat span{font-size:28px;line-height:1}.cat small{display:block;font-weight:600;opacity:.92;font-size:12px}
+.cat.hot{outline:3px solid var(--gold);outline-offset:-3px}
+.cat .n{position:absolute;top:10px;right:10px;background:rgba(0,0,0,.22);border-radius:999px;padding:2px 8px;font-size:11.5px}
+.cats.dark .cat{background:var(--ink);min-height:64px;flex-direction:row;align-items:center;justify-content:flex-start;gap:10px;font-size:14px}
+.cats.dark .cat span{font-size:22px}
+.new{margin:14px 16px;background:#fff;border-radius:16px;padding:14px;border:2px solid var(--line);display:flex;gap:12px;align-items:center}.new i{font-size:28px;font-style:normal}.new small{color:var(--mut)}
+.row{display:flex;gap:10px;overflow-x:auto;padding:0 16px 4px;scrollbar-width:none}.row::-webkit-scrollbar{display:none}
+.row .m{flex:0 0 150px}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;padding:12px 16px}
+.m{background:#fff;border-radius:14px;overflow:hidden;box-shadow:0 2px 8px rgba(0,0,0,.1);display:flex;flex-direction:column;text-align:left}
+.m .ph{position:relative;aspect-ratio:1;background:#f3e6cf}
+.m img{width:100%;height:100%;object-fit:cover;display:block}
+.m .tag{position:absolute;left:7px;top:7px;background:var(--gold);color:var(--ink);font-size:10.5px;font-weight:800;padding:2px 7px;border-radius:999px}
+.m .ok{position:absolute;right:7px;top:7px;background:var(--green2);color:#fff;font-size:10.5px;font-weight:800;padding:2px 7px;border-radius:999px}
+.m b{display:block;padding:8px 9px 0;font-size:13px;line-height:1.25;min-height:2.5em}
+.m .pr{padding:3px 9px 0;font-size:11.5px;color:var(--green);font-weight:700}
+.m .dl{margin:7px 9px 9px;background:var(--green);color:#fff;text-align:center;padding:8px;border-radius:9px;font-size:12.5px;font-weight:800}
+.empty{padding:40px 16px;text-align:center;color:var(--mut)}
+.det .big{width:100%;aspect-ratio:1;object-fit:cover;display:block;background:#f3e6cf}
+.det h2{padding:14px 16px 4px;font-size:22px;line-height:1.2}
+.det .sub{padding:0 16px;color:var(--mut)}
+.price{margin:12px 16px 0;background:#e8f6ee;border:2px solid #bfe6cf;border-radius:14px;padding:12px 14px;display:flex;gap:10px;align-items:center}
+.price i{font-style:normal;font-size:24px}.price b{font-size:17px;color:var(--green)}.price small{display:block;color:var(--mut);font-size:12px}
+.files{padding:6px 16px 0}
+.fbtn{display:flex;align-items:center;justify-content:space-between;gap:10px;width:100%;margin-top:10px;background:var(--green);color:#fff;padding:15px 16px;border-radius:14px;font-weight:800;font-size:15.5px;text-decoration:none;transition:background .3s}
+.fbtn small{font-weight:600;opacity:.9;font-size:12px;white-space:nowrap}
+.fbtn .fn{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;min-width:0}
+.fbtn.done{background:var(--green2)}
+.tip{margin:14px 16px 0;background:#fff;border:2px solid var(--line);border-radius:14px;padding:12px 14px;font-size:13.5px;color:#4a3a2c}
+.tip b{color:var(--ink)}
+.guide{padding:4px 16px}.guide section{background:#fff;border:2px solid var(--line);border-radius:16px;padding:14px;margin-top:12px}
+.guide h4{font-size:16px;margin-bottom:6px}.guide p,.guide li{font-size:14px;color:#4a3a2c}.guide ul{padding-left:18px}.guide li{margin-top:4px}
+.foot{padding:24px 16px 10px;text-align:center;color:var(--mut);font-size:12px}
+.lang{display:inline-block;margin-top:8px;text-decoration:underline}
+.sheet{position:fixed;inset:0;background:rgba(0,0,0,.5);display:none;align-items:flex-end;justify-content:center;z-index:50}
+.sheet.on{display:flex}.sheet div{background:#fff;border-radius:18px 18px 0 0;padding:20px 18px 28px;max-width:560px;width:100%}
+.sheet h4{font-size:17px;margin-bottom:8px}.sheet p{font-size:14px;color:#4a3a2c;margin-top:6px}.sheet button{margin-top:16px;width:100%;background:var(--red);color:#fff;padding:13px;border-radius:12px;font-weight:800}
+</style>
+</head>
+<body>
+<div class="wrap" id="app"></div>
+<div class="sheet" id="sheet" onclick="if(event.target===this)this.classList.remove('on')"><div id="sheetIn"></div></div>
+<script>
+const LANG = (document.documentElement.dataset.lang || (location.pathname.includes('/en') ? 'en' : 'es'));
+const T = {
+ es:{brand:'Navidad3D',area:'Área de miembros · acceso de por vida',search:'Buscá un modelo…',hello:'¡Bienvenido a tu biblioteca!',helloSub:'Tocá un modelo, descargá el archivo y a imprimir.',
+  cats:'Elegí una categoría',all:'Todos los de Navidad',models:'modelos',best:'Lo más vendido',top:'Los que más se venden en diciembre',
+  newT:'Modelos nuevos cada semana',newS:'Se suman solos a tu biblioteca',k90:'+90.000 archivos para todo el año',k90s:'Tocá una categoría y se abre la carpeta',
+  dl:'⬇ Descargar',sell:'Vendelo a',sugg:'Precio sugerido de venta',suggS:'Lo que suele cobrarse por la pieza impresa',back:'Volver',art:'Articulado',done:'✓ Bajado',
+  apt:'Apto para todas las impresoras 3D (FDM y resina).',file:'Archivo',noRes:'No encontramos ese modelo. Probá con otra palabra.',
+  tip:'<b>¿Cómo se abre?</b> Los <b>.stl</b> y <b>.3mf</b> se abren directo en tu programa de impresión (Bambu Studio, Cura, PrusaSlicer, Orca). Los <b>.zip</b>, <b>.rar</b> y <b>.7z</b> se descomprimen primero (en la compu, doble clic; en el celular, con la app Archivos o ZArchiver).',
+  how:'Cómo vender tus piezas',install:'Agregar a inicio',
+  instT:'Tené la app a mano',instIos:'En el iPhone: tocá <b>Compartir</b> (el cuadrado con la flecha) y después <b>«Agregar a inicio»</b>.',instAnd:'En Android: tocá los <b>tres puntitos</b> del navegador y <b>«Agregar a la pantalla principal»</b>.',ok:'Listo',
+  other:'English version',foot:'Tus archivos son para imprimir y vender las piezas. No compartas ni revendas los archivos digitales.',
+  cat:{todos:['🎄','Navidad'],articulados:['🦌','Articulados'],'papa-noel':['🎅','Papá Noel'],renos:['🦌','Renos'],arboles:['🌲','Árboles'],adornos:['🔴','Adornos y esferas'],munecos:['⛄','Muñecos y gnomos'],personajes:['🧝','Personajes'],pesebre:['⭐','Pesebre'],deco:['🕯️','Velas, lámparas y deco'],llaveros:['🔑','Llaveros'],cortantes:['🍪','Cortantes de galletitas'],guia:['📘','Cómo vender'] },
+  k90cats:{}, guide:[
+   ['🎯 Qué conviene imprimir primero','<ul><li>Empezá por <b>adornos, esferas y llaveros</b>: se imprimen en menos de 1 hora y se venden de a varios.</li><li>Después sumá <b>articulados</b> (los chicos los aman) y <b>piezas grandes</b> como pueblos, pesebres y lámparas, que se cobran más.</li><li>Armá <b>combos</b>: 6 esferas, set de árbol + estrella, o pesebre completo.</li></ul>'],
+   ['💲 Cómo poner el precio','<p>Cada modelo trae su <b>precio sugerido de venta</b>. Regla simple: <b>costo del filamento + tiempo de impresora × 3</b>. Un adorno chico te sale centavos de material y se vende entre US$3 y US$6.</p>'],
+   ['📲 Dónde venderlas','<ul><li>Estados de WhatsApp e Instagram con <b>fotos de las piezas reales</b>.</li><li>Grupos de Facebook de tu barrio y Marketplace.</li><li>Ferias navideñas, escuelas y oficinas (regalos para el equipo).</li><li>Tomá pedidos con nombre: <b>las piezas personalizadas se cobran el doble</b>.</li></ul>'],
+   ['🖨️ Consejos de impresión','<ul><li>Capa 0,2 mm y relleno 10-15 % alcanza para casi todo.</li><li>Articulados: imprimilos <b>sin soportes</b> y en una sola pieza, como vienen.</li><li>Para el brillo navideño: PLA seda (silk) rojo, verde y dorado.</li></ul>']
+  ]},
+ en:{brand:'ChristmasSTL',area:'Members area · lifetime access',search:'Search a model…',hello:'Welcome to your library!',helloSub:'Tap a model, download the file and print.',
+  cats:'Pick a category',all:'All Christmas models',models:'models',best:'Best seller',top:'Top sellers in December',
+  newT:'New models every week',newS:'Added to your library automatically',k90:'+90,000 files for the whole year',k90s:'Tap a category to open its folder',
+  dl:'⬇ Download',sell:'Sell it for',sugg:'Suggested selling price',suggS:'What people usually charge for the printed piece',back:'Back',art:'Articulated',done:'✓ Downloaded',
+  apt:'Works with every 3D printer (FDM and resin).',file:'File',noRes:'No model found. Try another word.',
+  tip:'<b>How to open it?</b> <b>.stl</b> and <b>.3mf</b> files open right in your slicer (Bambu Studio, Cura, PrusaSlicer, Orca). <b>.zip</b>, <b>.rar</b> and <b>.7z</b> files need to be unzipped first (double-click on a computer; on your phone, use the Files app).',
+  how:'How to sell your prints',install:'Add to home',
+  instT:'Keep the app handy',instIos:'On iPhone: tap <b>Share</b> (the square with the arrow), then <b>“Add to Home Screen”</b>.',instAnd:'On Android: tap the browser’s <b>three dots</b>, then <b>“Add to Home screen”</b>.',ok:'Got it',
+  other:'Versión en español',foot:'Your files are for printing and selling the physical pieces. Do not share or resell the digital files.',
+  cat:{todos:['🎄','Christmas'],articulados:['🦌','Articulated'],'papa-noel':['🎅','Santa Claus'],renos:['🦌','Reindeer'],arboles:['🌲','Trees'],adornos:['🔴','Ornaments & baubles'],munecos:['⛄','Snowmen & gnomes'],personajes:['🧝','Characters'],pesebre:['⭐','Nativity'],deco:['🕯️','Candles, lamps & decor'],llaveros:['🔑','Keychains'],cortantes:['🍪','Cookie cutters'],guia:['📘','How to sell'] },
+  guide:[
+   ['🎯 What to print first','<ul><li>Start with <b>ornaments, baubles and keychains</b>: they print in under an hour and sell in sets.</li><li>Then add <b>articulated</b> pieces (kids love them) and <b>big pieces</b> like villages, nativity sets and lamps, which sell for more.</li><li>Make <b>bundles</b>: 6 baubles, tree + star set, or the full nativity.</li></ul>'],
+   ['💲 How to price','<p>Every model shows a <b>suggested selling price</b>. Simple rule: <b>filament cost + printer time × 3</b>. A small ornament costs cents in material and sells for $3–$6.</p>'],
+   ['📲 Where to sell','<ul><li>Instagram, Facebook Marketplace and local groups with <b>photos of your real prints</b>.</li><li>Etsy and Christmas craft fairs.</li><li>Schools and offices (team gifts).</li><li>Take custom orders with names: <b>personalized pieces sell for double</b>.</li></ul>'],
+   ['🖨️ Printing tips','<ul><li>0.2 mm layers and 10–15% infill work for almost everything.</li><li>Articulated: print them <b>without supports</b> and in one piece, as they come.</li><li>For the Christmas shine: silk PLA in red, green and gold.</li></ul>']
+  ]}
+}[LANG];
+/*EXTRAS*/
+const COLORS = {principiante:'#7c2d12,#ea580c',calc:'#065f46,#10b981',licencia:'#3f3f46,#71717a',soporte:'#0369a1,#0ea5e9',todos:'#0f6b43,#16a05f',articulados:'#c2410c,#f59e0b','papa-noel':'#a30d22,#ef4444',renos:'#92400e,#d97706',arboles:'#166534,#22c55e',adornos:'#be123c,#fb7185',munecos:'#1d4ed8,#38bdf8',personajes:'#7c3aed,#c084fc',pesebre:'#a16207,#facc15',deco:'#0e7490,#2dd4bf',llaveros:'#334155,#64748b',cortantes:'#9a3412,#fb923c',guia:'#1e3a8a,#3b82f6'};
+let DB = null;
+const X = {
+ es:{
+  start:'Empezá acá', mail:'soporte@instanthandbook.com',
+  tiles:{principiante:['🎓','Guía del principiante','Del archivo a la pieza'],calc:['🧮','Calculadora','Cuánto cobrar'],licencia:['📜','Licencia comercial','Podés vender'],soporte:['💬','Soporte','Te ayudamos']},
+  principiante:[
+   ['1. Entendé los archivos','<ul><li>📷 <b>Foto</b>: es solo la vista previa, no va a la impresora.</li><li>🧊 <b>.STL</b>: la forma de la pieza. Se abre en cualquier programa de impresión 3D.</li><li>📦 <b>.3MF</b>: un «proyecto listo», con piezas, colores y placas ya armados. Es el mejor formato cuando está.</li><li>🗜️ <b>.ZIP / .RAR / .7Z</b>: carpeta comprimida. Bajala y descomprimila (clic derecho → Extraer) antes de abrirla.</li></ul><p>💡 Desde el celular podés ver todo y descargar, pero para imprimir el archivo se abre en un programa en la compu.</p>'],
+   ['2. Instalá el programa de tu impresora (gratis)','<ul><li><b>Bambu Lab</b> (A1, A1 mini, P1S, X1) → Bambu Studio. Abre los .3mf con placas y colores.</li><li><b>Creality</b> (Ender, K1, K2) → Creality Print u OrcaSlicer.</li><li><b>Elegoo, Anycubic, Prusa, Sovol y otras</b> → OrcaSlicer o el programa de la marca.</li><li><b>Cualquier impresora</b> → UltiMaker Cura (a veces abre solo la primera pieza de un .3mf).</li></ul><p>La primera vez te pide el modelo de tu impresora: elegilo bien, eso deja la configuración correcta.</p>'],
+   ['3. Tu primera impresión, paso a paso','<ol style="padding-left:18px"><li>Descargá el .STL o .3MF desde la app.</li><li>Abrilo en el programa (Archivo → Importar, o arrastralo).</li><li>Elegí el filamento (PLA para empezar).</li><li>Soportes: activalos solo si la pieza tiene partes «en el aire». Los articulados se imprimen <b>sin soportes</b>.</li><li>Tocá <b>Fatiar / Slice</b>: te dice el tiempo y los gramos de filamento (anotalos en la Calculadora).</li><li>Mandalo a la impresora y mirá la primera capa: si se pega bien, el resto casi siempre sale.</li></ol><p>🧪 Empezá con algo chico (un llavero, una esfera, un adorno): sale rápido y aprendés sin gastar filamento.</p>'],
+   ['4. Cómo mandarlo a la impresora','<ul><li><b>Bambu Lab</b>: entrá con tu cuenta Bambu, «Fatiar placa» → «Imprimir». Sin wifi: «Exportar G-code» a la microSD.</li><li><b>Creality</b>: K1/K2 por wifi desde Creality Print; Ender: «Exportar G-code» a la SD y elegilo en la pantalla.</li><li><b>Otras marcas</b>: OrcaSlicer → «Exportar G-code» → SD o pendrive → elegilo en la pantalla.</li></ul>'],
+   ['5. Piezas y colores','<p>Muchos modelos (Papá Noel, muñeco de nieve, ositos) vienen en varias piezas para pegar o encastrar. En un .3mf pueden estar en «Placa 1, Placa 2…» (pestañas arriba): revisalas todas. Sin sistema de colores, imprimí cada color por separado y pegalo.</p>'],
+   ['6. Configuración segura para empezar','<ul><li>Capa: 0,2 mm · Relleno: 10–15 % · Paredes: 2–3.</li><li>PLA: boquilla 200–215 °C, cama 55–60 °C.</li><li>Brillo navideño: PLA seda (silk) rojo, verde y dorado.</li></ul>'],
+   ['7. ¿Algo salió mal? Soluciones rápidas','<ul><li><b>No se pega a la cama</b>: limpiá la cama con alcohol y nivelala; subí la cama 5 °C.</li><li><b>Hilos entre partes</b>: bajá 5–10 °C la boquilla.</li><li><b>El articulado salió trabado</b>: movelo con suavidad apenas sale, mientras está tibio.</li><li><b>Falta una pieza del .3mf</b>: revisá todas las placas o escribinos a soporte.</li></ul>'],
+   ['8. Diccionario rápido','<ul><li><b>Fatiador / Slicer</b>: programa que corta la pieza en capas.</li><li><b>G-code</b>: el archivo que lee la impresora.</li><li><b>Soportes</b>: estructuras que sostienen las partes en el aire; después se sacan.</li><li><b>Relleno</b>: cuánto de la pieza va lleno por dentro.</li></ul>']
+  ],
+  calc:{t:'Calculadora de precio',s:'Poné los datos que te da el programa al fatiar y te dice cuánto cobrar.',g:'Gramos de filamento',kg:'Precio del rollo de 1 kg (US$)',h:'Horas de impresión',kwh:'Costo por hora de impresora (US$)',m:'Multiplicador de ganancia',cost:'Costo de la pieza',price:'Precio sugerido de venta',gain:'Tu ganancia por pieza',note:'Tip: las piezas personalizadas con nombre se cobran el doble.'},
+  licencia:'<section><h4>📜 Licencia comercial</h4><p>Con tu compra podés <b>imprimir y vender las piezas físicas</b> todas las veces que quieras: en tu barrio, ferias, redes, Marketplace o tu propia tienda.</p><p style="margin-top:8px">Lo único que no se permite es <b>compartir, revender o regalar los archivos digitales</b> (los .stl, .3mf o .zip).</p></section>',
+  soporte:'<section><h4>💬 Soporte</h4><p>¿No baja un archivo, no abre un .3mf o no encontrás algo? Escribinos y te ayudamos.</p><a class="fbtn" href="mailto:soporte@instanthandbook.com?subject=Navidad3D%20-%20ayuda"><span class="fn">✉️ Escribir a soporte</span><small>soporte@instanthandbook.com</small></a></section>'
+ },
+ en:{
+  start:'Start here', mail:'support@instanthandbook.com',
+  tiles:{principiante:['🎓','Beginner’s guide','From file to print'],calc:['🧮','Price calculator','What to charge'],licencia:['📜','Commercial license','You can sell'],soporte:['💬','Support','We help you']},
+  principiante:[
+   ['1. Understand the files','<ul><li>📷 <b>Photo</b>: just the preview, it doesn’t go to the printer.</li><li>🧊 <b>.STL</b>: the shape of the piece. Opens in any 3D printing program.</li><li>📦 <b>.3MF</b>: a “ready project” with parts, colors and plates already set. The best format when available.</li><li>🗜️ <b>.ZIP / .RAR / .7Z</b>: compressed folder. Download and unzip it (right click → Extract) before opening.</li></ul><p>💡 You can browse and download from your phone, but to print, the file is opened in a program on a computer.</p>'],
+   ['2. Install your printer’s program (free)','<ul><li><b>Bambu Lab</b> (A1, A1 mini, P1S, X1) → Bambu Studio. Opens .3mf files with plates and colors.</li><li><b>Creality</b> (Ender, K1, K2) → Creality Print or OrcaSlicer.</li><li><b>Elegoo, Anycubic, Prusa, Sovol and others</b> → OrcaSlicer or the brand’s program.</li><li><b>Any printer</b> → UltiMaker Cura (sometimes opens only the first part of a .3mf).</li></ul><p>The first time, pick your exact printer model: that sets the right settings.</p>'],
+   ['3. Your first print, step by step','<ol style="padding-left:18px"><li>Download the .STL or .3MF from the app.</li><li>Open it in the program (File → Import, or drag it in).</li><li>Choose the filament (PLA to start).</li><li>Supports: only if the piece has parts “in the air”. Articulated pieces print <b>without supports</b>.</li><li>Hit <b>Slice</b>: it shows print time and grams of filament (write them in the Calculator).</li><li>Send it to the printer and watch the first layer: if it sticks well, the rest almost always works.</li></ol><p>🧪 Start small (a keychain, a bauble, an ornament): it prints fast and you learn without wasting filament.</p>'],
+   ['4. How to send it to the printer','<ul><li><b>Bambu Lab</b>: log in with your Bambu account, “Slice plate” → “Print”. No Wi-Fi: “Export G-code” to the microSD.</li><li><b>Creality</b>: K1/K2 over Wi-Fi from Creality Print; Ender: “Export G-code” to the SD card and pick it on the screen.</li><li><b>Other brands</b>: OrcaSlicer → “Export G-code” → SD or USB → pick it on the screen.</li></ul>'],
+   ['5. Parts and colors','<p>Many models (Santa, snowman, teddy bears) come in several parts to glue or snap together. In a .3mf they may be split into “Plate 1, Plate 2…” (tabs on top): check them all. Without a multicolor system, print each color separately and glue them.</p>'],
+   ['6. Safe settings to start','<ul><li>Layer: 0.2 mm · Infill: 10–15% · Walls: 2–3.</li><li>PLA: nozzle 200–215 °C, bed 55–60 °C.</li><li>For Christmas shine: silk PLA in red, green and gold.</li></ul>'],
+   ['7. Something went wrong? Quick fixes','<ul><li><b>Won’t stick to the bed</b>: clean it with alcohol and level it; raise the bed 5 °C.</li><li><b>Strings between parts</b>: lower the nozzle 5–10 °C.</li><li><b>Articulated piece came out stuck</b>: gently move it right away, while it’s still warm.</li><li><b>A part of the .3mf is missing</b>: check every plate or write to support.</li></ul>'],
+   ['8. Quick glossary','<ul><li><b>Slicer</b>: program that cuts the piece into layers.</li><li><b>G-code</b>: the file the printer reads.</li><li><b>Supports</b>: structures holding parts in the air; removed afterwards.</li><li><b>Infill</b>: how solid the inside of the piece is.</li></ul>']
+  ],
+  calc:{t:'Price calculator',s:'Enter what the slicer shows and it tells you what to charge.',g:'Grams of filament',kg:'Price of a 1 kg spool (US$)',h:'Print hours',kwh:'Printer cost per hour (US$)',m:'Profit multiplier',cost:'Cost of the piece',price:'Suggested selling price',gain:'Your profit per piece',note:'Tip: personalized pieces with a name sell for double.'},
+  licencia:'<section><h4>📜 Commercial license</h4><p>Your purchase lets you <b>print and sell the physical pieces</b> as many times as you want: locally, at fairs, on social media, Marketplace, Etsy or your own shop.</p><p style="margin-top:8px">The only thing not allowed is <b>sharing, reselling or giving away the digital files</b> (.stl, .3mf or .zip).</p></section>',
+  soporte:'<section><h4>💬 Support</h4><p>A file won’t download, a .3mf won’t open or you can’t find something? Write to us and we’ll help.</p><a class="fbtn" href="mailto:support@instanthandbook.com?subject=ChristmasSTL%20-%20help"><span class="fn">✉️ Email support</span><small>support@instanthandbook.com</small></a></section>'
+ }
+}[LANG];
+function extraTile(k){ const [e,t,s]=X.tiles[k]; return `<button class="cat" style="background:linear-gradient(135deg,${COLORS[k]})" onclick="go('#c/${k}')"><span>${e}</span><div>${t}<small>${s}</small></div></button>`; }
+function extraPage(k){
+  const [e,t]=X.tiles[k]; let body='';
+  if(k==='principiante') body=X.principiante.map(g=>`<section><h4>${g[0]}</h4>${g[1]}</section>`).join('');
+  if(k==='licencia') body=X.licencia;
+  if(k==='soporte') body=X.soporte;
+  if(k==='calc'){ const c=X.calc; const f=(id,l,v,st)=>`<label style="display:block;margin-top:10px;font-size:14px;font-weight:700">${l}<input id="${id}" type="number" inputmode="decimal" step="${st}" value="${v}" oninput="calc()" style="display:block;width:100%;margin-top:4px;padding:11px 12px;border:2px solid var(--line);border-radius:10px;font:inherit;background:#fff"></label>`;
+    body=`<section><h4>🧮 ${c.t}</h4><p>${c.s}</p>${f('cg',c.g,40,1)}${f('ckg',c.kg,20,0.5)}${f('ch',c.h,2,0.25)}${f('ckwh',c.kwh,0.15,0.05)}${f('cm',c.m,3,0.5)}
+     <div class="price" style="margin:14px 0 0"><i>💰</i><div><small>${c.price}</small><b id="cp" style="font-size:22px"></b><small id="cc"></small></div></div><p style="margin-top:10px;font-size:13px">${c.note}</p></section>`; }
+  $('#app').innerHTML=`<button class="back" onclick="history.back()"><span>‹</span> ${e} ${t}</button><div class="guide">${body}</div>`;
+  if(k==='calc') calc();
+}
+function calc(){ const v=id=>parseFloat(($('#'+id)||{}).value)||0; const cost=v('cg')/1000*v('ckg')+v('ch')*v('ckwh'); const p=cost*v('cm'); const fx=n=>'US$'+n.toFixed(2);
+  $('#cp').textContent=fx(p); $('#cc').textContent=X.calc.cost+': '+fx(cost)+' · '+X.calc.gain+': '+fx(p-cost); }
+
+const $ = s => document.querySelector(s);
+const esc = s => String(s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const store = { get(k){ try{ return JSON.parse(localStorage.getItem(k) || 'null'); }catch(e){ return null; } }, set(k,v){ try{ localStorage.setItem(k, JSON.stringify(v)); }catch(e){} } };
+const done = new Set(store.get('n3d_done') || []);
+const name = m => m[LANG] || m.es;
+const money = p => 'US$' + p[0] + '–' + p[1];
+const mb = b => b > 1e6 ? (b/1e6).toFixed(b > 1e7 ? 0 : 1).replace('.', LANG === 'es' ? ',' : '.') + ' MB' : Math.max(1, Math.round(b/1e3)) + ' KB';
+const dlUrl = id => 'https://drive.usercontent.google.com/download?id=' + id + '&export=download&confirm=t';
+
+function card(m){
+  return `<button class="m" onclick="go('#m/${m.id}')"><div class="ph"><img loading="lazy" src="${m.img ? 'img/' + m.id + '.webp' : 'icon-512.png'}" alt="">${m.articulado ? `<span class="tag">${T.art}</span>` : ''}${done.has(m.id) ? `<span class="ok">✓</span>` : ''}</div><b>${esc(name(m))}</b><div class="pr">${T.sell} ${money(m.precio)}</div><div class="dl">${T.dl}</div></button>`;
+}
+function catTile(k, n, hot){
+  const [e, t] = T.cat[k]; const sub = k === 'articulados' ? T.best : k === 'guia' ? '' : n + ' ' + T.models;
+  return `<button class="cat${hot ? ' hot' : ''}" style="background:linear-gradient(135deg,${COLORS[k]})" onclick="go('#c/${k}')"><span>${e}</span><div>${t}<small>${sub}</small></div></button>`;
+}
+function list(k){ return k === 'todos' ? DB.modelos : k === 'articulados' ? DB.modelos.filter(m => m.articulado) : DB.modelos.filter(m => m.cat === k); }
+
+function home(){
+  const q = sessionStorage.getItem('q') || '';
+  const cats = ['articulados','papa-noel','renos','arboles','adornos','munecos','personajes','pesebre','deco','llaveros','cortantes'].filter(k => k === 'articulados' || list(k).length);
+  const tops = DB.modelos.filter(m => m.top).slice(0, 12);
+  $('#app').innerHTML = `
+  <div class="hd"><div class="t"><div><b>🎄 ${T.brand}</b><small>${T.area}</small></div><button class="inst" id="inst" onclick="install()">📲 ${T.install}</button></div>
+   <label class="bar">🔍<input id="q" type="search" placeholder="${T.search}" value="${esc(q)}" oninput="search(this.value)" autocomplete="off"></label></div>
+  <div id="res"></div>
+  <div id="main">
+   <div class="hello"><i>🎁</i><div><b>${T.hello}</b><br><small>${T.helloSub}</small></div></div>
+   <h3>🎓 ${X.start}</h3><div class="cats">${extraTile('principiante')}${extraTile('calc')}</div>
+   <h3>${T.cats}</h3>
+   <div class="cats">${catTile('todos', DB.modelos.length, true)}${cats.map(k => catTile(k, list(k).length)).join('')}${catTile('guia', 0)}</div>
+   ${tops.length ? `<h3>🔥 ${T.top}</h3><div class="row">${tops.map(card).join('')}</div>` : ''}
+   <div class="new"><i>🆕</i><div><b>${T.newT}</b><br><small>${T.newS}</small></div></div>
+   ${DB.k90 && DB.k90.length ? `<h3>${T.k90}</h3><p style="padding:0 16px 10px;color:var(--mut);font-size:13px">${T.k90s}</p><div class="cats dark">${DB.k90.map(c => `<a class="cat" href="https://drive.google.com/drive/folders/${c.id}" target="_blank" rel="noopener"><span>${c.e}</span>${esc(c[LANG] || c.es)}</a>`).join('')}</div>` : ''}
+  </div>
+  <h3>📌 ${LANG==='es'?'Ayuda':'Help'}</h3><div class="cats" style="padding-bottom:6px">${extraTile('licencia')}${extraTile('soporte')}</div>
+  <div class="foot">${T.foot}<br><a class="lang" href="${LANG === 'es' ? DB.otro_en : DB.otro_es}">${T.other}</a></div>`;
+  if (q) search(q);
+  showInstall();
+}
+function search(v){
+  sessionStorage.setItem('q', v);
+  const t = v.trim().toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+  $('#main').style.display = t ? 'none' : '';
+  if (!t){ $('#res').innerHTML = ''; return; }
+  const r = DB.modelos.filter(m => (m.es + ' ' + m.en + ' ' + (T.cat[m.cat] || [])[1]).toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').includes(t));
+  $('#res').innerHTML = r.length ? `<div class="grid">${r.map(card).join('')}</div>` : `<div class="empty">${T.noRes}</div>`;
+}
+function category(k){
+  const [e, t] = T.cat[k] || ['', ''];
+  if (X.tiles[k]) return extraPage(k);
+  if (k === 'guia'){
+    $('#app').innerHTML = `<button class="back" onclick="history.back()"><span>‹</span> ${e} ${T.how}</button><div class="guide">${T.guide.map(g => `<section><h4>${g[0]}</h4>${g[1]}</section>`).join('')}</div>`;
+    return;
+  }
+  const l = list(k);
+  $('#app').innerHTML = `<button class="back" onclick="history.back()"><span>‹</span> ${e} ${t} · ${l.length} ${T.models}</button><div class="grid">${l.map(card).join('')}</div>`;
+}
+function model(id){
+  const m = DB.modelos.find(x => x.id === id); if (!m) return go('#');
+  const [e, t] = T.cat[m.cat] || ['', ''];
+  $('#app').innerHTML = `<div class="det"><button class="back" onclick="history.back()"><span>‹</span> ${e} ${t}</button>
+   <img class="big" src="${m.img ? 'img/' + m.id + '.webp' : 'icon-512.png'}" alt="">
+   <h2>${esc(name(m))}</h2><p class="sub">${m.articulado ? '🦌 ' + T.art + ' · ' : ''}${T.apt}</p>
+   <div class="price"><i>💰</i><div><small>${T.sugg}</small><b>${money(m.precio)}</b><small>${T.suggS}</small></div></div>
+   <div class="files">${m.files.map((f, i) => `<a class="fbtn${done.has(m.id + ':' + i) ? ' done' : ''}" href="${dlUrl(f.id)}" target="_blank" rel="noopener" onclick="mark('${m.id}',${i},this)"><span class="fn">${done.has(m.id + ':' + i) ? T.done : T.dl}${m.files.length > 1 ? ' · ' + esc(f.name.replace(/\+/g, ' ')) : ''}</span><small>.${esc(f.name.split('.').pop().toLowerCase())} · ${mb(f.size)}</small></a>`).join('')}</div>
+   <div class="tip">${T.tip}</div></div>`;
+}
+function mark(id, i, el){
+  done.add(id); done.add(id + ':' + i); store.set('n3d_done', [...done]);
+  el.classList.add('done'); el.querySelector('.fn').textContent = T.done;
+}
+let deferred = null;
+window.addEventListener('beforeinstallprompt', e => { e.preventDefault(); deferred = e; showInstall(); });
+function standalone(){ return matchMedia('(display-mode: standalone)').matches || navigator.standalone; }
+function showInstall(){ const b = $('#inst'); if (b && !standalone()) b.style.display = 'inline-block'; }
+function install(){
+  if (deferred){ deferred.prompt(); deferred = null; return; }
+  const ios = /iphone|ipad|ipod/i.test(navigator.userAgent);
+  $('#sheetIn').innerHTML = `<h4>📲 ${T.instT}</h4><p>${ios ? T.instIos : T.instAnd}</p><button onclick="$('#sheet').classList.remove('on')">${T.ok}</button>`;
+  $('#sheet').classList.add('on');
+}
+function go(h){ location.hash = h; }
+function route(){
+  const h = location.hash;
+  if (h.startsWith('#c/')) category(h.slice(3));
+  else if (h.startsWith('#m/')) model(h.slice(3));
+  else home();
+  if (!h.startsWith('#') || h === '#') { const y = +sessionStorage.getItem('y') || 0; requestAnimationFrame(() => scrollTo(0, y)); } else scrollTo(0, 0);
+}
+addEventListener('scroll', () => { if (!location.hash || location.hash === '#') sessionStorage.setItem('y', scrollY); }, {passive: true});
+addEventListener('hashchange', route);
+fetch('catalogo.json').then(r => r.json()).then(d => { DB = d; document.title = T.brand; route(); });
+if ('serviceWorker' in navigator) navigator.serviceWorker.register('sw.js').catch(() => {});
+</script>
+</body>
+</html>
