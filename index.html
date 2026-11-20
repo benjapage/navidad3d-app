@@ -9,6 +9,7 @@
 <link rel="apple-touch-icon" href="icon-192.png">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <title>Navidad3D</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,700;9..144,800&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
 <style>
 :root{--red:#d4142f;--red2:#a30d22;--green:#0f6b43;--green2:#16a05f;--gold:#ffc43d;--ink:#22160f;--cream:#fff6e6;--line:#efdcc0;--mut:#7a6656}
 *{box-sizing:border-box;margin:0;padding:0}
@@ -67,6 +68,52 @@ h3{padding:18px 16px 10px;font-size:17px}
 .sheet{position:fixed;inset:0;background:rgba(0,0,0,.5);display:none;align-items:flex-end;justify-content:center;z-index:50}
 .sheet.on{display:flex}.sheet div{background:#fff;border-radius:18px 18px 0 0;padding:20px 18px 28px;max-width:560px;width:100%}
 .sheet h4{font-size:17px;margin-bottom:8px}.sheet p{font-size:14px;color:#4a3a2c;margin-top:6px}.sheet button{margin-top:16px;width:100%;background:var(--red);color:#fff;padding:13px;border-radius:12px;font-weight:800}
+
+/* === retoque visual 20/11 === */
+:root{--red:#c8102e;--red2:#7f0a1c;--green:#0b5d3b;--green2:#13915a;--gold:#f5c04a;--ink:#2a1a12;--cream:#fbf4e8;--line:#ecdcc4;--mut:#86705e}
+body{font-family:"Plus Jakarta Sans",-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;background:var(--cream) radial-gradient(circle at 20% 0,rgba(200,16,46,.06),transparent 40%);letter-spacing:-.005em}
+h2,h3,.hd b,.hello b,.back{font-family:"Fraunces",Georgia,serif;letter-spacing:-.01em}
+h3{font-size:19px;padding:24px 16px 12px}
+.hd{background:linear-gradient(160deg,#5c0614 0%,var(--red2) 35%,var(--red) 100%);padding:22px 16px 18px;border-radius:0 0 26px 26px;overflow:hidden}
+.hd:before{content:"";position:absolute;inset:0;pointer-events:none;opacity:.35;background-image:radial-gradient(2px 2px at 12% 30%,#fff,transparent),radial-gradient(1.5px 1.5px at 38% 70%,#fff,transparent),radial-gradient(2px 2px at 64% 22%,#fff,transparent),radial-gradient(1.5px 1.5px at 82% 58%,#fff,transparent),radial-gradient(1px 1px at 52% 46%,#fff,transparent),radial-gradient(1.5px 1.5px at 92% 18%,#fff,transparent);animation:nieve 9s linear infinite}
+@keyframes nieve{from{background-position:0 -40px}to{background-position:0 120px}}
+@media (prefers-reduced-motion:reduce){.hd:before{animation:none}}
+.hd>*{position:relative}
+.hd b{font-size:24px;font-weight:800}
+.hd small{font-size:12.5px;opacity:.85;margin-top:2px}
+.hd .inst{background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.35);backdrop-filter:blur(6px)}
+.bar{border-radius:14px;margin-top:16px;box-shadow:0 6px 18px rgba(0,0,0,.18)}
+.bar input{padding:13px 0;font-size:15px}
+.hello{margin:18px 16px 0;border:0;border-radius:20px;padding:16px;background:linear-gradient(135deg,#fff,#fff7ea);box-shadow:0 8px 24px rgba(90,40,10,.08);position:relative;overflow:hidden}
+.hello:after{content:"";position:absolute;right:-30px;top:-30px;width:110px;height:110px;border-radius:50%;background:radial-gradient(var(--gold),transparent 70%);opacity:.25}
+.hello i{width:52px;height:52px;flex:0 0 52px;border-radius:16px;background:linear-gradient(135deg,var(--red),#e8475f);display:grid;place-items:center;font-size:26px;box-shadow:0 6px 14px rgba(200,16,46,.3)}
+.hello b{font-size:17px}
+.cat{border-radius:20px;min-height:108px;box-shadow:0 8px 20px rgba(0,0,0,.14),inset 0 1px 0 rgba(255,255,255,.25);transition:transform .15s,box-shadow .15s;overflow:hidden}
+.cat:after{content:"";position:absolute;right:-18px;bottom:-18px;width:80px;height:80px;border-radius:50%;background:rgba(255,255,255,.12)}
+.cat:active,.m:active,.fbtn:active{transform:scale(.97)}
+.cat span{font-size:30px;filter:drop-shadow(0 2px 3px rgba(0,0,0,.2))}
+.cat.hot{outline:0;box-shadow:0 0 0 3px var(--gold),0 10px 24px rgba(0,0,0,.18)}
+.cats.dark .cat{background:linear-gradient(135deg,#2a1a12,#4a2e1f);min-height:62px;border-radius:16px}
+.cats.dark .cat:after{display:none}
+.m{border-radius:18px;box-shadow:0 6px 18px rgba(90,40,10,.1);transition:transform .15s}
+.m .ph{background:linear-gradient(135deg,#f7ead3,#efdcbc)}
+.m .tag{background:var(--gold);box-shadow:0 2px 6px rgba(0,0,0,.15)}
+.m b{font-size:13.5px;font-weight:700;padding:10px 11px 0}
+.m .pr{padding:4px 11px 0;color:var(--green2)}
+.m .dl{margin:9px 10px 10px;border-radius:12px;background:linear-gradient(135deg,var(--green),var(--green2));box-shadow:0 4px 10px rgba(11,93,59,.25)}
+.new{border:0;border-radius:20px;background:linear-gradient(135deg,#0b5d3b,#13915a);color:#fff;box-shadow:0 8px 22px rgba(11,93,59,.25)}
+.new small{color:rgba(255,255,255,.85)}
+.back{font-size:18px;padding:16px;background:rgba(255,255,255,.92);backdrop-filter:blur(10px);box-shadow:0 2px 12px rgba(0,0,0,.06);border:0}
+.det .big{border-radius:0 0 26px 26px}
+.det h2{font-size:26px;padding:18px 16px 6px}
+.price{border:0;border-radius:18px;background:linear-gradient(135deg,#e6f6ec,#d3efdd)}
+.fbtn{border-radius:16px;background:linear-gradient(135deg,var(--green),var(--green2));box-shadow:0 8px 18px rgba(11,93,59,.28);padding:16px 18px}
+.fbtn.done{background:linear-gradient(135deg,#13915a,#27b874)}
+.tip,.guide section{border:0;border-radius:18px;background:#fff;box-shadow:0 6px 18px rgba(90,40,10,.07)}
+.guide h4{font-family:"Fraunces",Georgia,serif;font-size:17px}
+.foot{padding:30px 16px 16px}
+.sheet div{border-radius:24px 24px 0 0}
+.sheet button{border-radius:14px;background:linear-gradient(135deg,var(--red2),var(--red))}
 </style>
 </head>
 <body>
